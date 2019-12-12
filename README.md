@@ -1,3 +1,31 @@
+<h2>Instructions for deploying:</h2>
+<ol>
+    <li>Create a db named 'psp', collation 'utf8_general_ci'</li>
+    <li>Run 'composer install' command in project dir</li>
+    <li>Modify db settings in .env file (if .env isn`t automatically created, create it out of .env.example)</li>
+    <li>Run 'php artisan migrate' command in project dir</li>
+    <li>Point your vhost to /public folder or run 'php artisan serve' command and use localhost:8000 as project url</li>
+</ol>
+<h2>Endpoints</h2>
+<h3>Customer creation</h3>
+<p>POST /api/customer</p>
+<p>Parameters: 'gender', 'firstname', 'lastname', 'country', 'email'</p>
+<h3>Customer edit</h3>
+<p>POST /api/customer/{id}</p>
+<p>Parameters: 'gender', 'firstname', 'lastname', 'country', 'email' (all optional)</p>
+<h3>Deposit</h3>
+<p>POST /api/transaction/deposit</p>
+<p>Parameters: 'customer_id', 'amount'</p>
+<h3>Withdraw</h3>
+<p>POST /api/transaction/withdraw</p>
+<p>Parameters: 'customer_id', 'amount'</p>
+<h3>Report</h3>
+<p>GET /api/transaction/report</p>
+<p>Query Parameters: 'fromDate', 'toDate' (all optional)</p>
+<p>Example: /api/transaction/report?fromDate=2019-11-26&toDate=2019-12-10</p>
+<h3>Test</h3>
+<p>To run the feature test execute './vendor/bin/phpunit' command in the project dir</p>
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">

@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/customer/{id?}', 'CustomerController@postCustomer');
+
+Route::post('/transaction/deposit', 'TransactionController@postDeposit');
+Route::post('/transaction/withdraw', 'TransactionController@postWithdraw');
+Route::get('/transaction/report', 'TransactionController@getReport');
